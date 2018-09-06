@@ -3,6 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+
+mongoose.connect('mongodb://chihet:chihet12@ds247852.mlab.com:47852/product',{useNewUrlParser:true})
+  .then(() =>  console.log('connection succesful'))
+  .catch((err) => console.error(err));
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
